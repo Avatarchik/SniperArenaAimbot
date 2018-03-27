@@ -242,7 +242,7 @@ void _GameLooking_Update(void *gameLooking){
 	GameLooking_Update(gameLooking);
 	
 	/*
-	After an *extremely* long time of analysis, I determined that I have no chance of changing defaultRotation AND having those changes take effect in game.
+	After an *extremely* long time of analysis, I determined that I have no chance of changing defaultRotation (the instance variable at gameLooking+0x50) AND having those changes take effect in game.
 	After analyzing most of the functions in the GameLooking class, I figured out that the only place defaultRotation's value is ever used is in GameLooking::Start.
 	This is a very dirty hack because Start should only be called once before Update is called on any script in Unity. But it works.
 	From the Unity docs: "Start is called exactly once in the lifetime of the script."
